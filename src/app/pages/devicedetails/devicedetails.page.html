@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>deviceDetails</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+ <div *ngFor="let info of deviceId | keyvalue">
+   <ion-item> {{info.key}} : {{info.value}} </ion-item>
+ </div>
+
+<div *ngFor="let info of deviceInfo | keyvalue">
+  <ion-item> {{info.key}} : {{info.value}} </ion-item>
+</div>
+
+<div *ngFor="let info of languageTag | keyvalue">
+  <ion-item> {{info.key}} : {{info.value}} </ion-item>
+</div>
+
+<div *ngFor="let info of languageCode | keyvalue">
+  <ion-item> {{info.key}} : {{info.value}} </ion-item>
+</div>
+
+<div *ngFor="let info of batteryInfo | keyvalue">
+  <ion-item> {{info.key}} : {{info.value}} </ion-item>
+</div>
+
+</ion-content>
+

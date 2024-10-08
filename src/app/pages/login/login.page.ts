@@ -25,7 +25,7 @@ export class LoginPage implements OnInit {
   public otpValidation: boolean = false;
   public interval: any;
 
-  constructor(private router: Router, private service1: LoginService, private loadingCtrl: LoadingController,private service2: EmailService,private service3:ProfileService) { }
+  constructor(private router: Router, private service1: LoginService, private loadingCtrl: LoadingController, private service2: EmailService, private service3: ProfileService) { }
 
   errors = [
     { type: 'required', message: 'Field cannot be empty' },
@@ -63,36 +63,36 @@ export class LoginPage implements OnInit {
       setTimeout(() => {
 
         this.service2.sendEmail(email).subscribe(
-          
-          async (response: HttpResponse<any>) => {
-            
-            console.log(response)
-          this.loadingCtrl.dismiss();
-          const status: number = response.status;
-          if (status === 200) {
-            console.log("done")
-            this.isVisibleEmailInput = false;
-            this.otpsent = false;
-            this.resend = false;
-            this.timer = 59;
-            this.isdisableResend = true;
 
-            this.interval = setInterval(() => {
-              if ((--this.timer) === 0) {
-                this.resend = true;
-                this.isdisableResend = false;
-                clearInterval(this.interval);
-              }
-            }, 1000)
-          }
-          localStorage.setItem('userEmail', email)
-        },
-          
+          async (response: HttpResponse<any>) => {
+
+            console.log(response)
+            this.loadingCtrl.dismiss();
+            const status: number = response.status;
+            if (status === 200) {
+              console.log("done")
+              this.isVisibleEmailInput = false;
+              this.otpsent = false;
+              this.resend = false;
+              this.timer = 59;
+              this.isdisableResend = true;
+
+              this.interval = setInterval(() => {
+                if ((--this.timer) === 0) {
+                  this.resend = true;
+                  this.isdisableResend = false;
+                  clearInterval(this.interval);
+                }
+              }, 1000)
+            }
+            localStorage.setItem('userEmail', email)
+          },
+
         );
-      
+
       }
-    
-    , 3300)
+
+        , 3300)
     }
     else {
       console.log("invalid email id");
@@ -120,19 +120,17 @@ export class LoginPage implements OnInit {
             this.login.reset();
 
             this.loadingCtrl.dismiss();
-        const emailData:any =JSON.parse(JSON.stringify(localStorage.getItem('userEmail')));
+            const emailData: any = JSON.parse(JSON.stringify(localStorage.getItem('userEmail')));
 
-            this.service3.getProfileDetails(emailData).subscribe((data)=>
-            {
-              if(!data)
-                {
-                  this.router.navigate(['/userdetails']);
+            this.service3.getProfileDetails(emailData).subscribe((data) => {
+              if (!data) {
+                this.router.navigate(['/userdetails']);
 
-                }
-                else{
-                  this.router.navigate(['/tabs'])
+              }
+              else {
+                this.router.navigate(['/tabs'])
 
-                }
+              }
             })
           }, 1500)
         }
@@ -146,9 +144,7 @@ export class LoginPage implements OnInit {
       console.log("invalid otp");
     }
   }
-  public nextPage() {
-    this.router.navigate(['/userdetails']);
-  }
+
   ngOnInit() {
   }
 

@@ -10,12 +10,12 @@ import { AdModalPage } from '../ad-modal/ad-modal.page';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  userData: any;
-  selectedImage: string | null = null
+  public userData: any;
+  public selectedImage: string | null = null
   public nickname: string = '';
   public email: string = '';
   public changeImage: boolean = true;
-  profile = { userid: '', nickname: '', email: '' }
+  public profile = { userid: '', nickname: '', email: '' }
 
   constructor(private router: Router,
     private menu: MenuController,
@@ -52,42 +52,42 @@ export class ProfilePage implements OnInit {
     return await modal.present();
   }
 
-  goToSettings() {
+  public goToSettings() {
     this.router.navigate(['/settings']);
   }
-  goToAboutDosthi() {
+  public goToAboutDosthi() {
     this.router.navigate(['/aboutDosthi']);
   }
 
-  goToAccount() {
+  public goToAccount() {
     this.router.navigate(['/account']);
   }
 
-  goToUserAgreement() {
+  public goToUserAgreement() {
     this.router.navigate(['/userAgreement']);
   }
 
-  goToBlockedList() {
+  public goToBlockedList() {
     this.router.navigate(['/blockedList']);
   }
-  goToPrivacy() {
+  public goToPrivacy() {
     this.router.navigate(['/privacy-policy']);
   }
 
-  goToWallet() {
+  public goToWallet() {
     this.router.navigate(['../wallet']);
   }
 
-  goToCoin() {
+  public goToCoin() {
     this.router.navigate(['/coin']);
   }
 
-  toggleMenu() {
+  public toggleMenu() {
     this.menu.toggle('rightMenu');
     // this.router.navigate(['/menu'])
   }
 
-  logout() {
+  public userLogout() {
     this.router.navigate(['/login'])
   }
 

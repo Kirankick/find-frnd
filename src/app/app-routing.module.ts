@@ -28,32 +28,33 @@ const routes: Routes = [
     loadChildren: () => import('./pages/profilecompletion/profilecompletion.module').then(m => m.ProfilecompletionPageModule)
   },
   {
-    path: 'profiledetails',
-    loadChildren: () => import('./pages/profiledetails/profiledetails.module').then(m => m.ProfiledetailsPageModule)
-  },
-  {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
     path: 'notifications',
-    loadChildren: () => import('./pages/notifications/notifications.module').then( m => m.NotificationsPageModule)
+    loadChildren: () => import('./pages/notifications/notifications.module').then(m => m.NotificationsPageModule)
   },
   {
     path: 'main',
-    loadChildren: () => import('./pages/main/main.module').then( m => m.MainPageModule)
-  },  {
+    loadChildren: () => import('./pages/main/main.module').then(m => m.MainPageModule)
+  },
+  {
     path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule)
   },
   {
     path: 'ad-modal',
-    loadChildren: () => import('./pages/ad-modal/ad-modal.module').then( m => m.AdModalPageModule)
+    loadChildren: () => import('./pages/ad-modal/ad-modal.module').then(m => m.AdModalPageModule)
   },
   {
     path: 'wallet',
-    loadChildren: () => import('./pages/wallet/wallet.module').then( m => m.WalletPageModule)
+    loadChildren: () => import('./pages/wallet/wallet.module').then(m => m.WalletPageModule)
+  },  {
+    path: 'devicedetails',
+    loadChildren: () => import('./pages/devicedetails/devicedetails.module').then( m => m.DevicedetailsPageModule)
   },
+
 
 
 
