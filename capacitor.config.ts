@@ -4,9 +4,12 @@ const config: CapacitorConfig = {
   appId: 'com.app.dosthi',
   appName: 'dosthi-android-app',
   webDir: 'www',
+  server: {
+    androidScheme: 'https'
+  },
   plugins: {
     SplashScreen: {
-      launchShowDuration: 4000,
+      launchShowDuration: 3000,
       launchAutoHide: true,
       backgroundColor: "#fe9900",
       androidSplashResourceName: "splash",
@@ -21,6 +24,9 @@ const config: CapacitorConfig = {
       imageName: "Splashscreen",
       contentMode: "scaleAspectFit",
       preventScreenshots: false
+    },
+    PushNotifications: {
+      presentationOptions: ["badge", "sound", "alert"],
     },
   },
 };

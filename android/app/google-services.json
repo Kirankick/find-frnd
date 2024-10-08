@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "395180585602",
+    "project_id": "dosthi-android-app",
+    "storage_bucket": "dosthi-android-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395180585602:android:9f223dfbae47ac68f67a9b",
+        "android_client_info": {
+          "package_name": "com.app.dosthi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-zhhTPdQzVffe8KhY9AL5hdfCnZWFIc4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

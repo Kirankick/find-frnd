@@ -291,11 +291,11 @@ export class HomePage implements OnInit {
   otherUsers: any[] = [];
   chatMessage: string = '';
 
-  constructor(private http: HttpClient, private socketService: SocketService, private router: Router) {}
+  constructor(private http: HttpClient, private socketService: SocketService, private router: Router) { }
 
   ngOnInit() {
-        this.userData = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('userData'))))
-        const email= JSON.parse(JSON.stringify(localStorage.getItem('userEmail')))
+    this.userData = JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('userData'))))
+    const email = JSON.parse(JSON.stringify(localStorage.getItem('userEmail')))
     this.http.post('https://bommanasolutions.in/signin', { email }).subscribe(
       (response: any) => {
         this.currentUser = response;
@@ -306,8 +306,8 @@ export class HomePage implements OnInit {
   }
   public profileDetails() {
 
-        this.router.navigate(['/profiledetails']);
-      }
+    this.router.navigate(['/profile']);
+  }
   loadUsers() {
     this.http.get(`https://bommanasolutions.in/users/${this.currentUser.email}`).subscribe((users: any) => {
       this.otherUsers = users;
@@ -318,7 +318,7 @@ export class HomePage implements OnInit {
     const sortedNames = [this.currentUser.nickname, friendName].sort();
     const roomId = sortedNames.join('-');
     this.socketService.joinRoom(roomId);
-    
+
     this.router.navigate(['/tabs/chat', { roomId, friendName }]);
   }
 }

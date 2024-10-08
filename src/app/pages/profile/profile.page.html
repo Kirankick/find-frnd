@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white;" defaultHref="/tabs"></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button class="wallet-button"  (click)="goToWallet()">
+        <ion-icon name="wallet-outline" class="custom-icon" ></ion-icon>
+      </ion-button>
+
+      <ion-button class="coin-button" (click)="goToCoin()">
+        <ion-icon name="cash-outline" class="custom-icon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+     <ion-button class="add-button" (click)="goToAdd()">
+        <ion-icon name="tv-outline" class="custom-icon"></ion-icon>
+      </ion-button>
+     </ion-buttons>
+
+    <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="menu-header-bg"></div>
+  <div class="header-content">
+    <div class="profile-image-container">
+      <ion-avatar class="profile-avatar">
+        <ion-img src="{{userData.avatar}}" alt="image" size="large"></ion-img>
+      </ion-avatar>
+    </div>
+  </div>
+
+  <ion-card class="menu-items">
+    <ion-item lines="none"><ion-icon name="person-circle-outline"></ion-icon>{{profile.userid}}</ion-item>
+    <ion-item lines="none"><ion-icon name="heart-outline"></ion-icon>{{profile.nickname}}</ion-item>
+    <ion-item lines="none"><ion-icon name="mail-outline"></ion-icon>{{profile.email}}</ion-item>
+
+    <ion-button class="logout-btn"  expand="full" shape="round" (click)="logout()"><ion-icon name="log-out-outline" slot="start"></ion-icon>
+      Logout</ion-button>
+  </ion-card>
+
+</ion-content>
+
+<!-- Side Menu -->
+<ion-menu content-id="main-content" side="end" menu-id="main-menu">
+ 
+
+  <ion-content class="menu-m">
+    <ion-list>
+      <ion-list-header>Quick Links</ion-list-header>
+
+      <ion-item >
+        <ion-icon name="thumbs-down-outline" color="danger" slot="start"></ion-icon>
+        <ion-text color="light"> <ion-label>Warnings</ion-label></ion-text>
+      </ion-item>
+
+      <ion-item routerLink="/wallet">
+        <ion-icon name="wallet-outline" color="warning" slot="start"></ion-icon>
+        <ion-text color="light"> <ion-label>Wallet</ion-label> </ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="swap-horizontal-outline" color="primary" slot="start"></ion-icon>
+        <ion-text color="light"> <ion-label>Transactions</ion-label> </ion-text>
+      </ion-item>
+
+      <ion-list-header>Profile</ion-list-header>
+
+      <ion-item>
+        <ion-icon name="person-outline" color="secondary" slot="start"></ion-icon>
+        <ion-text color="light"><ion-label>Edit Profile</ion-label> </ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="share-outline" color="secondary" slot="start" ></ion-icon>
+        <ion-text color="light"> <ion-label>Share and Earn</ion-label></ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="help-circle-outline" color="tertiary" slot="start"></ion-icon>
+        <ion-text color="light"> <ion-label>About Me</ion-label> </ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="logo-whatsapp" color="success" slot="start"></ion-icon>
+        <ion-text color="light">  <ion-label>Share Apk</ion-label> </ion-text>
+      </ion-item>
+
+      <ion-list-header>Other</ion-list-header>
+
+      <ion-item>
+        <ion-icon name="chatbubbles-outline" color="medium" slot="start"></ion-icon>
+        <ion-text color="light"> <ion-label>Blocked Chats</ion-label></ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="chatbubble-ellipses-outline" color="primary" slot="start"></ion-icon>
+        <ion-text color="light"><ion-label>Feedback</ion-label></ion-text>
+      </ion-item>
+
+      <ion-item routerLink="/termsandservices">
+        <ion-icon name="document-text-outline" color="primary" slot="start"></ion-icon>
+       <ion-text color="light"> <ion-label>Terms of Service</ion-label> </ion-text>
+      </ion-item>
+
+      <ion-item routerLink="/userpolicy">
+        <ion-icon name="file-tray-outline" color="primary" slot="start"></ion-icon>
+        <ion-text color="light"> <ion-label>User Policy</ion-label> </ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="settings-outline" color="primary" slot="start"></ion-icon>
+        <ion-text color="light"><ion-label>Settings</ion-label></ion-text>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Main Content -->
+<ion-router-outlet id="main-content"></ion-router-outlet>
